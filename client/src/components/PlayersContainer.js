@@ -7,7 +7,7 @@ import Players from "./Players";
 
 const PlayersContainer = () => {
    const [players, setPlayers] = useState([]);
-   const [darkmode, setDarkMode] = useLocalState("darkmode", false);
+   const [darkmode, setDarkMode] = useLocalState("darkmode", true);
 
    const toggleDarkMode = () => {
       setDarkMode(!darkmode);
