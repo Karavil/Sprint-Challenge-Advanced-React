@@ -21,6 +21,10 @@ const PlayersContainer = () => {
             setPlayers(res.data);
          })
          .catch(err => console.log(err));
+
+      return () => {
+         setPlayers([]);
+      };
    }, []);
 
    return (

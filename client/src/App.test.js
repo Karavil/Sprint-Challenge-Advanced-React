@@ -1,9 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import { render, fireEvent, configure } from "@testing-library/react";
+import App from "./App";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+test("dark mode toggle works", () => {
+   const { getByText } = render(<App />);
+   const states = [];
+   states.push(fireEvent.click(getByText("Toggle Dark Mode")));
+});
+
+test("displays at least 100 players", async () => {
+   const { findAllByTestId } = render(<App />);
+   const players = await findAllByTestId("player-card");
+   expect(players.length).toBeGreaterThanOrEqual(100);
 });
